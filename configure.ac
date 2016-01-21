@@ -488,7 +488,7 @@ dnl Detect go version. Go 1.4 support only "-X variable 'value'"
 dnl format of assigning values to variables via linker flags. Go 1.5
 dnl deprecates this format in favor of "-X 'variable=value'"
 dnl format. Drop this ugliness when we drop support for Go 1.4.
-GO_VERSION=`"${ABS_GO}" version | sed -e 's/^go version go\(DIGITS*\.DIGITS*\.DIGITS*\).*/\1/'`
+GO_VERSION=`"${ABS_GO}" version | sed -e 's/^go version go\(DIGITS*\.DIGITS*\(\.DIGITS*\)\?\).*/\1/'`
 GO_MAJOR=`echo "${GO_VERSION}" | grep -o '^DIGITS\+'`
 GO_MINOR=`echo "${GO_VERSION}" | grep -o '^DIGITS\+\.DIGITS\+' | grep -o 'DIGITS\+$'`
 GO_MAJOR_MINOR=`echo "${GO_MAJOR}.${GO_MINOR}"`
